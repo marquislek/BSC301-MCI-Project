@@ -156,7 +156,6 @@ function CardSortingTest() {
 
   function startTest() {
     getTestCriteria();
-
   }
 
   function test(correct) {
