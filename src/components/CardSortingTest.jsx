@@ -115,12 +115,10 @@ function CardSortingTest() {
     if (!testDone) {
       testDone = true;
       correct && result();
-      if (noOfTest !== 5) {
-        setTimeout(nextTest, 2000);
-        noOfTest += 1;
-      } else {
-        setTimeout(getTestCriteria, 2000);
-      }
+      noOfTest += 1;
+      noOfTest === 9
+        ? setTimeout(getTestCriteria, 2000)
+        : setTimeout(nextTest, 2000);
     }
   }
 
