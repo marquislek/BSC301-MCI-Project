@@ -2,385 +2,385 @@ import React from "react";
 
 const cardDeck = [
   {
-    key: 1,
+    id: 1,
     number: 1,
     shape: "Circle",
     color: "green"
   },
   {
-    key: 2,
+    id: 2,
     number: 2,
     shape: "Circle",
     color: "green"
   },
   {
-    key: 3,
+    id: 3,
     number: 3,
     shape: "Circle",
     color: "green"
   },
   {
-    key: 4,
+    id: 4,
     number: 4,
     shape: "Circle",
     color: "green"
   },
   {
-    key: 5,
+    id: 5,
     number: 1,
     shape: "Cross",
     color: "green"
   },
   {
-    key: 6,
+    id: 6,
     number: 2,
     shape: "Cross",
     color: "green"
   },
   {
-    key: 7,
+    id: 7,
     number: 3,
     shape: "Cross",
     color: "green"
   },
   {
-    key: 8,
+    id: 8,
     number: 4,
     shape: "Cross",
     color: "green"
   },
   {
-    key: 9,
+    id: 9,
     number: 1,
     shape: "Triangle",
     color: "green"
   },
   {
-    key: 10,
+    id: 10,
     number: 2,
     shape: "Triangle",
     color: "green"
   },
   {
-    key: 11,
+    id: 11,
     number: 3,
     shape: "Triangle",
     color: "green"
   },
   {
-    key: 12,
+    id: 12,
     number: 4,
     shape: "Triangle",
     color: "green"
   },
   {
-    key: 13,
+    id: 13,
     number: 1,
     shape: "Star",
     color: "green"
   },
   {
-    key: 14,
+    id: 14,
     number: 2,
     shape: "Star",
     color: "green"
   },
   {
-    key: 15,
+    id: 15,
     number: 3,
     shape: "Star",
     color: "green"
   },
   {
-    key: 16,
+    id: 16,
     number: 4,
     shape: "Star",
     color: "green"
   },
   {
-    key: 17,
+    id: 17,
     number: 1,
     shape: "Circle",
     color: "yellow"
   },
   {
-    key: 18,
+    id: 18,
     number: 2,
     shape: "Circle",
     color: "yellow"
   },
   {
-    key: 19,
+    id: 19,
     number: 3,
     shape: "Circle",
     color: "yellow"
   },
   {
-    key: 20,
+    id: 20,
     number: 4,
     shape: "Circle",
     color: "yellow"
   },
   {
-    key: 21,
+    id: 21,
     number: 1,
     shape: "Cross",
     color: "yellow"
   },
   {
-    key: 22,
+    id: 22,
     number: 2,
     shape: "Cross",
     color: "yellow"
   },
   {
-    key: 23,
+    id: 23,
     number: 3,
     shape: "Cross",
     color: "yellow"
   },
   {
-    key: 24,
+    id: 24,
     number: 4,
     shape: "Cross",
     color: "yellow"
   },
   {
-    key: 25,
+    id: 25,
     number: 1,
     shape: "Triangle",
     color: "yellow"
   },
   {
-    key: 26,
+    id: 26,
     number: 2,
     shape: "Triangle",
     color: "yellow"
   },
   {
-    key: 27,
+    id: 27,
     number: 3,
     shape: "Triangle",
     color: "yellow"
   },
   {
-    key: 28,
+    id: 28,
     number: 4,
     shape: "Triangle",
     color: "yellow"
   },
   {
-    key: 29,
+    id: 29,
     number: 1,
     shape: "Star",
     color: "yellow"
   },
   {
-    key: 30,
+    id: 30,
     number: 2,
     shape: "Star",
     color: "yellow"
   },
   {
-    key: 31,
+    id: 31,
     number: 3,
     shape: "Star",
     color: "yellow"
   },
   {
-    key: 32,
+    id: 32,
     number: 4,
     shape: "Star",
     color: "yellow"
   },
   {
-    key: 33,
+    id: 33,
     number: 1,
     shape: "Circle",
     color: "blue"
   },
   {
-    key: 34,
+    id: 34,
     number: 2,
     shape: "Circle",
     color: "blue"
   },
   {
-    key: 35,
+    id: 35,
     number: 3,
     shape: "Circle",
     color: "blue"
   },
   {
-    key: 36,
+    id: 36,
     number: 4,
     shape: "Circle",
     color: "blue"
   },
   {
-    key: 37,
+    id: 37,
     number: 1,
     shape: "Cross",
     color: "blue"
   },
   {
-    key: 38,
+    id: 38,
     number: 2,
     shape: "Cross",
     color: "blue"
   },
   {
-    key: 39,
+    id: 39,
     number: 3,
     shape: "Cross",
     color: "blue"
   },
   {
-    key: 40,
+    id: 40,
     number: 4,
     shape: "Cross",
     color: "blue"
   },
   {
-    key: 41,
+    id: 41,
     number: 1,
     shape: "Triangle",
     color: "blue"
   },
   {
-    key: 42,
+    id: 42,
     number: 2,
     shape: "Triangle",
     color: "blue"
   },
   {
-    key: 43,
+    id: 43,
     number: 3,
     shape: "Triangle",
     color: "blue"
   },
   {
-    key: 44,
+    id: 44,
     number: 4,
     shape: "Triangle",
     color: "blue"
   },
   {
-    key: 45,
+    id: 45,
     number: 1,
     shape: "Star",
     color: "blue"
   },
   {
-    key: 46,
+    id: 46,
     number: 2,
     shape: "Star",
     color: "blue"
   },
   {
-    key: 47,
+    id: 47,
     number: 3,
     shape: "Star",
     color: "blue"
   },
   {
-    key: 48,
+    id: 48,
     number: 4,
     shape: "Star",
     color: "blue"
   },
   {
-    key: 49,
+    id: 49,
     number: 1,
     shape: "Circle",
     color: "red"
   },
   {
-    key: 50,
+    id: 50,
     number: 2,
     shape: "Circle",
     color: "red"
   },
   {
-    key: 51,
+    id: 51,
     number: 3,
     shape: "Circle",
     color: "red"
   },
   {
-    key: 52,
+    id: 52,
     number: 4,
     shape: "Circle",
     color: "red"
   },
   {
-    key: 53,
+    id: 53,
     number: 1,
     shape: "Cross",
     color: "red"
   },
   {
-    key: 54,
+    id: 54,
     number: 2,
     shape: "Cross",
     color: "red"
   },
   {
-    key: 55,
+    id: 55,
     number: 3,
     shape: "Cross",
     color: "red"
   },
   {
-    key: 56,
+    id: 56,
     number: 4,
     shape: "Cross",
     color: "red"
   },
   {
-    key: 57,
+    id: 57,
     number: 1,
     shape: "Triangle",
     color: "red"
   },
   {
-    key: 58,
+    id: 58,
     number: 2,
     shape: "Triangle",
     color: "red"
   },
   {
-    key: 59,
+    id: 59,
     number: 3,
     shape: "Triangle",
     color: "red"
   },
   {
-    key: 60,
+    id: 60,
     number: 4,
     shape: "Triangle",
     color: "red"
   },
   {
-    key: 61,
+    id: 61,
     number: 1,
     shape: "Star",
     color: "red"
   },
   {
-    key: 62,
+    id: 62,
     number: 2,
     shape: "Star",
     color: "red"
   },
   {
-    key: 63,
+    id: 63,
     number: 3,
     shape: "Star",
     color: "red"
   },
   {
-    key: 64,
+    id: 64,
     number: 4,
     shape: "Star",
     color: "red"

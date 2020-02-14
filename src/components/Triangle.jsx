@@ -8,7 +8,7 @@ function Triangle(props) {
   return (
     <Icon
       icon={triangleIcon}
-      style={{ color: Color, fontSize: 45, padding: 3 }}
+      style={{ color: Color, fontSize: 50, padding: 4 }}
     />
   );
 }

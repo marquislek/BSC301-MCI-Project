@@ -2,6 +2,9 @@ body {
   background-color: #0093b8;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   text-align: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .Card {
@@ -11,10 +14,10 @@ body {
   padding: 12px;
   position: relative;
   list-style: none;
+  align-items: center;
+  
   max-width: 15%;
   max-height: 30%;
   min-height: 30%;
   min-width: 15%;
 }
-
-
