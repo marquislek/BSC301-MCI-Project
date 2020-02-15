@@ -1,47 +1,22 @@
 import React, { useState } from "react";
-import CardDeck from "../cardDeck";
 import PatientCard from "./patientCard";
 import TestCard from "./testCard";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
 import cardDeck from "../cardDeck";
-import { Card } from "@material-ui/core";
 
-function CardSortingTest() {
-  const [patientCard, setPatientCard] = useState({
-    Shape: "Circle",
-    Color: "blue",
-    Number: 1
-  });
+function CardSortingTest(props) {
+  const currentDeck = cardDeck;
 
-  const [currentDeck, setCurrentDeck] = useState(cardDeck);
-
-  const [testDeck, setTestDeck] = useState([]);
-
+  const delay = 2000;
+  const criteriaDuration = 9;
   let noOfTest = 0;
-  let testingCard = {};
+
   let criteriaDeck = [];
   let otherDeck = [];
   let testCriteria = "";
   let testDone = false;
-  let testLog = "";
-  let criteriaCompleted = {
-    shapeDone: false,
-    colorDone: false,
-    numberDone: false
-  };
 
-  function shuffleArray(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var temp = array[i];
-      array[i] = array[j];
-      array[j] = temp;
-    }
-  }
-
-  const randomNumber = Math.floor(Math.random() * 64);
-
+  let randomNumber = Math.floor(Math.random() * 64);
   switch (Math.floor(Math.random() * 3) + 1) {
     case 1:
       testCriteria = currentDeck[randomNumber].shape;
@@ -71,9 +46,63 @@ function CardSortingTest() {
         return card.number !== testCriteria;
       });
   }
+  shuffleArray(criteriaDeck);
+  shuffleArray(otherDeck);
+  let firstCard = {
+    correctCard: true,
+    shape: criteriaDeck[1].shape,
+    color: criteriaDeck[1].color,
+    number: criteriaDeck[1].number
+  };
+  let secondCard = {
+    correctCard: false,
+    shape: otherDeck[0].shape,
+    color: otherDeck[0].color,
+    number: otherDeck[0].number
+  };
+  let thirdCard = {
+    correctCard: false,
+    shape: otherDeck[1].shape,
+    color: otherDeck[1].color,
+    number: otherDeck[1].number
+  };
+  let fourthCard = {
+    correctCard: false,
+    shape: otherDeck[2].shape,
+    color: otherDeck[2].color,
+    number: otherDeck[2].number
+  };
+
+  let tempDeck = [firstCard, secondCard, thirdCard, fourthCard];
+  shuffleArray(tempDeck);
+  const [patientCard, setPatientCard] = useState({
+    Shape: criteriaDeck[0].shape,
+    Color: criteriaDeck[0].color,
+    Number: criteriaDeck[0].number
+  });
+  const [testDeck, setTestDeck] = useState(
+    tempDeck.map(tempDeckCard => (
+      <TestCard
+        onGuess={test}
+        correct={tempDeckCard.correctCard}
+        shape={tempDeckCard.shape}
+        color={tempDeckCard.color}
+        number={tempDeckCard.number}
+      />
+    ))
+  );
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      let temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
 
   function getTestCriteria() {
-    const randomNumber = Math.floor(Math.random() * 64);
+    randomNumber = Math.floor(Math.random() * 64);
     noOfTest = 0;
     switch (Math.floor(Math.random() * 3) + 1) {
       case 1:
@@ -107,59 +136,36 @@ function CardSortingTest() {
     nextTest();
   }
 
-  function startTest() {
-    getTestCriteria();
-  }
-
-  function test(correct) {
-    if (!testDone) {
-      testDone = true;
-      correct && result();
-      noOfTest += 1;
-      noOfTest === 9
-        ? setTimeout(getTestCriteria, 2000)
-        : setTimeout(nextTest, 2000);
-    }
-  }
-
-  function result() {
-    // if (
-    //   event.target.shape === criteriaDeck[1].shape && event.target.color === criteria
-    // ){return true}else {
-    //   return false;
-    // }
-  }
-
   function nextTest() {
     testDone = false;
     shuffleArray(criteriaDeck);
     shuffleArray(otherDeck);
-    const firstCard = {
+    firstCard = {
       correctCard: true,
       shape: criteriaDeck[1].shape,
       color: criteriaDeck[1].color,
       number: criteriaDeck[1].number
     };
-    const secondCard = {
+    secondCard = {
       correctCard: false,
       shape: otherDeck[0].shape,
       color: otherDeck[0].color,
       number: otherDeck[0].number
     };
-    const thirdCard = {
+    thirdCard = {
       correctCard: false,
       shape: otherDeck[1].shape,
       color: otherDeck[1].color,
       number: otherDeck[1].number
     };
-    const fourthCard = {
+    fourthCard = {
       correctCard: false,
       shape: otherDeck[2].shape,
       color: otherDeck[2].color,
       number: otherDeck[2].number
     };
 
-    const tempDeck = [firstCard, secondCard, thirdCard, fourthCard];
+    tempDeck = [firstCard, secondCard, thirdCard, fourthCard];
     shuffleArray(tempDeck);
     setPatientCard({
       Shape: criteriaDeck[0].shape,
@@ -177,6 +183,25 @@ function CardSortingTest() {
         />
       ))
     );
+  }
+
+  function test(correct) {
+    if (!testDone) {
+      testDone = true;
+      correct && result();
+      noOfTest += 1;
+      noOfTest === criteriaDuration
+        ? setTimeout(getTestCriteria, delay)
+        : setTimeout(nextTest, delay);
+    }
+  }
+
+  function result() {
+    // if (
+    //   event.target.shape === criteriaDeck[1].shape && event.target.color === criteria
+    // ){return true}else {
+    //   return false;
+    // }
   }
 
   return (
@@ -197,9 +222,6 @@ function CardSortingTest() {
           color={patientCard.Color}
           number={patientCard.Number}
         />
-        <Button onClick={startTest} variant="contained">
-          test
-        </Button>
       </Grid>
     </div>
   );
