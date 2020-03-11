@@ -6,15 +6,21 @@ import cardDeck from "../cardDeck";
 
 function CardSortingTest(props) {
   const currentDeck = cardDeck;
-
   const delay = 2000;
   const criteriaDuration = 9;
   let noOfTest = 0;
-
+  let patientResults = {
+    errors: 0,
+    correct: 0,
+    perseverationErrors: 0,
+    nonPerseverationErrors: 0
+  };
   let criteriaDeck = [];
   let otherDeck = [];
   let testCriteria = "";
   let testDone = false;
+  let noOfSets = 0;
+  
 
   let randomNumber = Math.floor(Math.random() * 64);
   switch (Math.floor(Math.random() * 3) + 1) {
@@ -103,6 +109,7 @@ function CardSortingTest(props) {
 
   function getTestCriteria() {
     randomNumber = Math.floor(Math.random() * 64);
+    noOfSets+= 1;
     noOfTest = 0;
     switch (Math.floor(Math.random() * 3) + 1) {
       case 1:
@@ -197,11 +204,7 @@ function CardSortingTest(props) {
   }
 
   function result() {
-    // if (
-    //   event.target.shape === criteriaDeck[1].shape && event.target.color === criteria
-    // ){return true}else {
-    //   return false;
-    // }
+    
   }
 
   return (

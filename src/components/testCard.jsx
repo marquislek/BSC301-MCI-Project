@@ -13,8 +13,6 @@ function TestCard(props) {
   }
   const correct = props.correct;
   function changeColor() {
-    console.log("this is working");
-    console.log(correct);
     correct ? setTemp("green"): setTemp("red");
     setTimeout(reset, 2000);
     
